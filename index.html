@@ -5,242 +5,1139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>My Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Portfolio</title>
+  <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* NAV LINKS */
+.nav-link{
+  position: relative;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-link:hover{
+  color: #f87171;
+}
+
+/* underline animation */
+.nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #ef4444;
+  transition: 0.4s;
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+/* MOBILE LINKS */
+.mobile-link{
+  color: rgba(255,255,255,0.8);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.mobile-link:hover{
+  color: #f87171;
+  transform: translateX(10px);
+}
+
+/* HAMBURGER */
+.bar{
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+/* hover animation */
+#menu-btn:hover .bar:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+
+#menu-btn:hover .bar:nth-child(2){
+  opacity: 0;
+}
+
+#menu-btn:hover .bar:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* mobile menu animation */
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade{
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+
+.service-item{
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+#projects .group{
+  animation: floatProject 5s ease-in-out infinite;
+}
+
+@keyframes floatProject{
+
+  0%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+
+}
+
+/* IMAGE FLOAT */
+#about img{
+  animation: floatAbout 6s ease-in-out infinite;
+}
+
+@keyframes floatAbout{
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-12px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+#contact .group{
+  animation: floatContact 5s ease-in-out infinite;
+}
+
+@keyframes floatContact{
+  0%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-8px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+/* FLOAT SOCIAL ICONS */
+#footer a{
+  animation: floatIcon 6s ease-in-out infinite;
+}
+
+#footer a:nth-child(2){
+  animation-delay: .5s;
+}
+
+#footer a:nth-child(3){
+  animation-delay: 1s;
+}
+
+#footer a:nth-child(4){
+  animation-delay: 1.5s;
+}
+
+@keyframes floatIcon{
+  0%{ transform: translateY(0px); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0px); }
+}
+
+
+
+
+</style>
 </head>
 
 <body>
   <!-- Header -->
   <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero">
-            <h1><span>W</span>ajahat <span>M</span>urtaza</h1>
-          </a>
-        </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="#hero" data-after="Home">Home</a></li>
-            <li><a href="#services" data-after="Service">Services</a></li>
-            <li><a href="#projects" data-after="Projects">Projects</a></li>
-            <li><a href="#about" data-after="About">About</a></li>
-            <li><a href="#contact" data-after="Contact">Contact</a></li>
-          </ul>
-        </div>
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="flex items-center justify-between h-20">
+
+        <!-- LOGO -->
+        <a href="#hero" class="group relative">
+
+          <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+
+            <span class="text-red-500 group-hover:text-red-400 transition">J</span>eril Gil A.
+            <span class="text-red-500 group-hover:text-red-400 transition">L</span>abagnoy
+
+          </h1>
+
+          <!-- glow underline -->
+          <div class="absolute -bottom-2 left-0 w-0 h-[2px] bg-red-500 group-hover:w-full transition-all duration-500"></div>
+
+        </a>
+
+        <!-- DESKTOP NAV -->
+        <nav class="hidden md:flex items-center gap-10">
+
+          <a href="#hero"
+             class="nav-link">Home</a>
+
+          <a href="#services"
+             class="nav-link">Services</a>
+
+          <a href="#projects"
+             class="nav-link">Projects</a>
+
+          <a href="#about"
+             class="nav-link">About</a>
+
+          <a href="#contact"
+             class="nav-link">Contact</a>
+
+        </nav>
+
+        <!-- MOBILE BUTTON -->
+        <button id="menu-btn"
+          class="md:hidden relative w-10 h-10 flex flex-col justify-center items-center gap-1.5 group">
+
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+
+        </button>
+
       </div>
     </div>
-  </section>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu"
+      class="hidden md:hidden absolute top-20 left-0 w-full bg-black/95 backdrop-blur-xl border-t border-white/10">
+
+      <div class="flex flex-col px-6 py-8 space-y-6 animate-fade">
+
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+
+      </div>
+
+    </div>
+
+  </header>
+</section>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+const menu = document.getElementById("mobile-menu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+</script>
+
+
   <!-- End Header -->
 
 
   <!-- Hero Section  -->
-  <section id="hero">
-    <div class="hero container">
+
+  <section id="hero"
+class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden relative">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="absolute w-[500px] h-[500px] bg-red-500/20 blur-3xl rounded-full top-[-100px] left-[-100px]"></div>
+
+  <div class="absolute w-[400px] h-[400px] bg-purple-500/20 blur-3xl rounded-full bottom-[-100px] right-[-100px]"></div>
+
+  <!-- CONTENT -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT CONTENT -->
       <div>
-        <h1>Hello, <span></span></h1>
-        <h1>My Name is <span></span></h1>
-        <h1>Wajahat <span></span></h1>
-        <a href="#projects" type="button" class="cta">Portfolio</a>
+
+        <p class="text-red-400 uppercase tracking-[6px] mb-4 text-sm font-semibold">
+          Welcome To My Portfolio
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+
+          Hello,
+          <br>
+
+          I'm
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+            Jeril
+          </span>
+
+        </h1>
+
+        <p class="text-gray-400 mt-6 text-lg leading-relaxed max-w-xl">
+          Frontend Developer focused on creating modern,
+          responsive, and visually powerful websites with
+          clean user experiences and smooth interactions.
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-4 mt-10">
+
+          <a href="#projects"
+          class="px-8 py-4 rounded-2xl bg-red-500 hover:bg-red-600 transition duration-300 text-white font-semibold shadow-lg shadow-red-500/30">
+
+            View Portfolio
+
+          </a>
+
+          <a href="#contact"
+          class="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition duration-300 text-white font-semibold">
+
+            Hire Me
+
+          </a>
+
+        </div>
+
+        <!-- STATS -->
+        <div class="flex gap-10 mt-14">
+
+          <div>
+            <h2 class="text-3xl font-bold text-white">
+              3+
+            </h2>
+
+            <p class="text-gray-400 text-sm">
+              Years Experience
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-bold text-white">
+              50+
+            </h2>
+
+            <p class="text-gray-400 text-sm">
+              Completed Projects
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-bold text-white">
+              100%
+            </h2>
+
+            <p class="text-gray-400 text-sm">
+              Client Satisfaction
+            </p>
+          </div>
+
+        </div>
+
       </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="relative flex justify-center">
+
+        <div class="absolute inset-0 bg-red-500/20 blur-3xl rounded-full"></div>
+
+        <img
+        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+        alt="Profile"
+        class="relative z-10 w-[320px] md:w-[420px] drop-shadow-2xl hover:scale-105 transition duration-500">
+
+      </div>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
   <!-- End Hero Section  -->
 
   <!-- Service Section -->
-  <section id="services">
-    <div class="services container">
-      <div class="service-top">
-        <h1 class="section-title">Serv<span>i</span>ces</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum deleniti maiores pariatur assumenda quas
-          magni et, doloribus quod voluptate quasi molestiae magnam officiis dolorum, dolor provident atque molestias
-          voluptatum explicabo!</p>
-      </div>
-      <div class="service-bottom">
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Web Design</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
-        </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Web Design</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
-        </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Web Design</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
-        </div>
-        <div class="service-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/services.png" /></div>
-          <h2>Web Design</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
-        </div>
-      </div>
+  <section id="services"
+class="relative py-28 bg-black overflow-hidden">
+
+  <!-- BACKGROUND EFFECTS -->
+  <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-red-500/20 blur-3xl rounded-full"></div>
+
+  <div class="absolute bottom-0 right-0 w-[350px] h-[350px] bg-purple-500/20 blur-3xl rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <!-- TOP CONTENT -->
+    <div class="text-center max-w-3xl mx-auto">
+
+      <p class="text-red-400 uppercase tracking-[5px] text-sm font-semibold mb-4 animate-pulse">
+        My Expertise
+      </p>
+
+      <h1 class="text-5xl md:text-6xl font-black text-white leading-tight">
+
+        My
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+          Services
+        </span>
+
+      </h1>
+
+      <p class="text-gray-400 mt-6 text-lg leading-relaxed">
+        I create modern, responsive, and high-performance websites
+        with visually powerful interfaces and smooth user experiences
+        designed for businesses, brands, and digital products.
+      </p>
+
     </div>
-  </section>
+
+    <!-- SERVICES GRID -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
+
+      <!-- CARD -->
+      <div
+      class="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-red-500/40 transition duration-500 hover:-translate-y-4 overflow-hidden">
+
+        <!-- GLOW -->
+        <div class="absolute inset-0 bg-gradient-to-b from-red-500/0 to-red-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <!-- ICON -->
+        <div
+        class="w-20 h-20 rounded-2xl bg-red-500/10 flex items-center justify-center border border-red-500/20 mb-6 group-hover:scale-110 transition duration-500">
+
+          <img
+          src="https://img.icons8.com/fluency/96/code.png"
+          class="w-12">
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Web Development
+        </h2>
+
+        <p class="text-gray-400 leading-relaxed">
+          Professional websites with modern frontend, backend systems,
+          responsive layouts, and smooth user interactions.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+      class="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-blue-500/40 transition duration-500 hover:-translate-y-4 overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div
+        class="w-20 h-20 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6 group-hover:scale-110 transition duration-500">
+
+          <img
+          src="img/Black Minimalist Creative Portfolio - Presentation.png"
+          class="w-12">
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          UI/UX Design
+        </h2>
+
+        <p class="text-gray-400 leading-relaxed">
+          Clean and modern interfaces designed for better user
+          engagement, aesthetics, and mobile responsiveness.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+      class="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-green-500/40 transition duration-500 hover:-translate-y-4 overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-green-500/0 to-green-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div
+        class="w-20 h-20 rounded-2xl bg-green-500/10 flex items-center justify-center border border-green-500/20 mb-6 group-hover:scale-110 transition duration-500">
+
+          <img
+          src="https://img.icons8.com/fluency/96/shopping-cart.png"
+          class="w-12">
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Ecommerce
+        </h2>
+
+        <p class="text-gray-400 leading-relaxed">
+          Full ecommerce systems with product management,
+          carts, checkout systems, and admin dashboards.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+      class="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-purple-500/40 transition duration-500 hover:-translate-y-4 overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-purple-500/0 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div
+        class="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 mb-6 group-hover:scale-110 transition duration-500">
+
+          <img
+          src="https://img.icons8.com/fluency/96/combo-chart.png"
+          class="w-12">
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          SEO & Analytics
+        </h2>
+
+        <p class="text-gray-400 leading-relaxed">
+          Improve visibility, performance, and analytics tracking
+          for better audience reach and engagement.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   <!-- End Service Section -->
 
   <!-- Projects Section -->
-  <section id="projects">
-    <div class="projects container">
-      <div class="projects-header">
-        <h1 class="section-title">Recent <span>Projects</span></h1>
-      </div>
-      <div class="all-projects">
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 1</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 2</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 3</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 4</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Project 5</h1>
-            <h2>Coding is Love</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/img-1.png" alt="img">
-          </div>
-        </div>
-      </div>
+  <section id="projects"
+class="relative py-32 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-red-500/10 blur-3xl rounded-full"></div>
+
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 blur-3xl rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <!-- SECTION HEADER -->
+    <div class="text-center mb-24">
+
+      <p class="text-red-400 uppercase tracking-[5px] text-sm font-semibold animate-pulse">
+        Portfolio Showcase
+      </p>
+
+      <h1 class="text-5xl md:text-7xl font-black text-white mt-4">
+
+        Recent
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+          Projects
+        </span>
+
+      </h1>
+
+      <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
+        Explore some of my latest modern web experiences,
+        ecommerce platforms, dashboards, and responsive interfaces.
+      </p>
+
     </div>
-  </section>
+
+    <!-- PROJECTS -->
+    <div class="space-y-14">
+
+      <!-- PROJECT ITEM -->
+      <div
+      class="group grid lg:grid-cols-2 gap-0 overflow-hidden rounded-[40px] bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/40 transition duration-700 hover:-translate-y-3">
+
+        <!-- IMAGE -->
+        <div class="relative overflow-hidden">
+
+          <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+          class="w-full h-full object-cover min-h-[350px] group-hover:scale-110 transition duration-700">
+
+          <!-- OVERLAY -->
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+
+          <!-- FLOATING TAG -->
+          <div class="absolute top-6 left-6 px-4 py-2 rounded-full bg-red-500/20 backdrop-blur-md border border-red-500/20 text-red-400 text-sm font-medium">
+
+            Featured Project
+
+          </div>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-10 md:p-14 flex flex-col justify-center">
+
+          <h2 class="text-4xl font-black text-white mb-4">
+            Modern Ecommerce Store
+          </h2>
+
+          <h3 class="text-red-400 text-lg font-semibold mb-6">
+            Laravel • Tailwind • MySQL
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed text-lg">
+            A fully responsive ecommerce platform with modern UI,
+            smooth shopping experience, product management,
+            admin dashboard, and optimized mobile performance.
+          </p>
+
+          <!-- BUTTONS -->
+          <div class="flex flex-wrap gap-4 mt-10">
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl bg-red-500 hover:bg-red-600 transition duration-300 text-white font-semibold shadow-lg shadow-red-500/30">
+
+              Live Preview
+
+            </a>
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 text-white font-semibold">
+
+              Source Code
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT ITEM -->
+      <div
+      class="group grid lg:grid-cols-2 gap-0 overflow-hidden rounded-[40px] bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition duration-700 hover:-translate-y-3">
+
+        <!-- CONTENT -->
+        <div class="p-10 md:p-14 flex flex-col justify-center order-2 lg:order-1">
+
+          <h2 class="text-4xl font-black text-white mb-4">
+            Admin Dashboard System
+          </h2>
+
+          <h3 class="text-blue-400 text-lg font-semibold mb-6">
+            Analytics • Management • Responsive
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed text-lg">
+            A clean and powerful dashboard interface with analytics,
+            user management, charts, responsive tables,
+            and modern dark UI components.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mt-10">
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl bg-blue-500 hover:bg-blue-600 transition duration-300 text-white font-semibold shadow-lg shadow-blue-500/30">
+
+              Live Preview
+
+            </a>
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 text-white font-semibold">
+
+              Source Code
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- IMAGE -->
+        <div class="relative overflow-hidden order-1 lg:order-2">
+
+          <img
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+          class="w-full h-full object-cover min-h-[350px] group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-l from-black/70 to-transparent"></div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT ITEM -->
+      <div
+      class="group grid lg:grid-cols-2 gap-0 overflow-hidden rounded-[40px] bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/40 transition duration-700 hover:-translate-y-3">
+
+        <!-- IMAGE -->
+        <div class="relative overflow-hidden">
+
+          <img
+          src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop"
+          class="w-full h-full object-cover min-h-[350px] group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-10 md:p-14 flex flex-col justify-center">
+
+          <h2 class="text-4xl font-black text-white mb-4">
+            Gaming Portfolio Website
+          </h2>
+
+          <h3 class="text-purple-400 text-lg font-semibold mb-6">
+            Interactive • Animated • Modern UI
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed text-lg">
+            A visually immersive gaming-inspired portfolio
+            with smooth animations, glowing effects,
+            responsive layouts, and interactive sections.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mt-10">
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl bg-purple-500 hover:bg-purple-600 transition duration-300 text-white font-semibold shadow-lg shadow-purple-500/30">
+
+              Live Preview
+
+            </a>
+
+            <a href="#"
+            class="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 text-white font-semibold">
+
+              Source Code
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   <!-- End Projects Section -->
 
   <!-- About Section -->
-  <section id="about">
-    <div class="about container">
-      <div class="col-left">
-        <div class="about-img">
-          <img src="./img/img-2.png" alt="img">
+  <section id="about"
+class="relative py-32 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="absolute top-0 left-[-120px] w-[450px] h-[450px] bg-red-500/10 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-0 right-[-120px] w-[450px] h-[450px] bg-purple-500/10 blur-3xl rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- IMAGE SIDE -->
+      <div class="relative flex justify-center">
+
+        <!-- GLOW -->
+        <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-purple-500/20 blur-3xl rounded-full"></div>
+
+        <!-- IMAGE CARD -->
+        <div class="relative group">
+
+          <div class="absolute inset-0 bg-gradient-to-tr from-red-500/30 to-purple-500/30 blur-2xl rounded-[50px] opacity-70 group-hover:opacity-100 transition duration-500"></div>
+
+          <div class="relative overflow-hidden rounded-[50px] border border-white/10 shadow-2xl">
+
+            <img
+            src="img/2484722491769053292756.jpg"
+            class="w-full max-w-[420px] h-[520px] object-cover group-hover:scale-110 transition duration-700">
+
+            <!-- OVERLAY -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+          </div>
+
         </div>
+
       </div>
-      <div class="col-right">
-        <h1 class="section-title">About <span>me</span></h1>
-        <h2>Front End Developer</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, velit alias eius non illum beatae atque
-          repellat ratione qui veritatis repudiandae adipisci maiores. At inventore necessitatibus deserunt
-          exercitationem cumque earum omnis ipsum rem accusantium quis, quas quia, accusamus provident suscipit magni!
-          Expedita sint ad dolore, commodi labore nihil velit earum ducimus nulla quae nostrum fugit aut, deserunt
-          reprehenderit libero enim!</p>
-        <a href="#" class="cta">Download Resume</a>
+
+      <!-- CONTENT SIDE -->
+      <div>
+
+        <p class="text-red-400 uppercase tracking-[6px] text-sm font-semibold mb-4 animate-pulse">
+          About Me
+        </p>
+
+        <h1 class="text-5xl md:text-6xl font-black text-white leading-tight">
+
+          Frontend
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+            Developer
+          </span>
+
+        </h1>
+
+        <h2 class="text-xl text-gray-400 mt-4 font-medium">
+          I build modern & interactive web experiences
+        </h2>
+
+        <p class="text-gray-400 mt-8 text-lg leading-relaxed">
+          I am a passionate frontend developer focused on creating
+          modern, responsive, and visually appealing websites.
+          I specialize in building clean UI designs, ecommerce systems,
+          and interactive web applications with smooth user experience.
+        </p>
+
+        <p class="text-gray-500 mt-6 leading-relaxed">
+          My goal is to turn ideas into powerful digital products
+          using modern technologies and creative design thinking.
+        </p>
+
+        <!-- STATS -->
+        <div class="grid grid-cols-3 gap-6 mt-12">
+
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 text-center hover:-translate-y-2 transition duration-300">
+
+            <h3 class="text-3xl font-black text-white">
+              50+
+            </h3>
+
+            <p class="text-gray-400 text-sm mt-2">
+              Projects
+            </p>
+
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 text-center hover:-translate-y-2 transition duration-300">
+
+            <h3 class="text-3xl font-black text-white">
+              3+
+            </h3>
+
+            <p class="text-gray-400 text-sm mt-2">
+              Years Exp
+            </p>
+
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/10 text-center hover:-translate-y-2 transition duration-300">
+
+            <h3 class="text-3xl font-black text-white">
+              100%
+            </h3>
+
+            <p class="text-gray-400 text-sm mt-2">
+              Satisfaction
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-4 mt-12">
+
+          <a href="#"
+          class="px-8 py-4 rounded-2xl bg-red-500 hover:bg-red-600 transition duration-300 text-white font-semibold shadow-lg shadow-red-500/30">
+
+            Download Resume
+
+          </a>
+
+          <a href="#contact"
+          class="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 text-white font-semibold">
+
+            Contact Me
+
+          </a>
+
+        </div>
+
       </div>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
   <!-- End About Section -->
 
   <!-- Contact Section -->
-  <section id="contact">
-    <div class="contact container">
-      <div>
-        <h1 class="section-title">Contact <span>info</span></h1>
-      </div>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
-          <div class="contact-info">
-            <h1>Phone</h1>
-            <h2>+92 300 835 5143</h2>
-            <h2>+1 234 123 1234</h2>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
-          <div class="contact-info">
-            <h1>Email</h1>
-            <h2>wajahat.webcog@gmail.com</h2>
-            <h2>abcd@gmail.com</h2>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
-          <div class="contact-info">
-            <h1>Address</h1>
-            <h2>Fatikchhari, Chittagong, Bangladesh</h2>
-          </div>
-        </div>
-      </div>
+ <section id="contact"
+class="relative py-32 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="absolute top-0 left-0 w-[450px] h-[450px] bg-red-500/10 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-purple-500/10 blur-3xl rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <!-- HEADER -->
+    <div class="text-center mb-20">
+
+      <p class="text-red-400 uppercase tracking-[6px] text-sm font-semibold animate-pulse">
+        Get In Touch
+      </p>
+
+      <h1 class="text-5xl md:text-7xl font-black text-white mt-4">
+        Contact
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+          Info
+        </span>
+      </h1>
+
+      <p class="text-gray-400 mt-6 max-w-2xl mx-auto">
+        Feel free to reach out for projects, collaborations,
+        or any web development inquiries.
+      </p>
+
     </div>
-  </section>
+
+    <!-- CONTACT GRID -->
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- CARD -->
+      <div
+      class="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/40 transition duration-500 hover:-translate-y-3 text-center overflow-hidden">
+
+        <!-- GLOW -->
+        <div class="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <!-- ICON -->
+        <div class="flex justify-center mb-6">
+
+          <div
+          class="w-20 h-20 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+
+            <img
+            src="https://img.icons8.com/fluency/96/phone.png"
+            class="w-12">
+
+          </div>
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Phone
+        </h2>
+
+        <p class="text-gray-400">
+          +63 300 835 5143
+        </p>
+
+        <p class="text-gray-500 mt-2">
+          +63 234 123 1234
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+      class="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/40 transition duration-500 hover:-translate-y-3 text-center overflow-hidden">
+
+        <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div class="flex justify-center mb-6">
+
+          <div
+          class="w-20 h-20 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+
+            <img
+            src="https://img.icons8.com/fluency/96/new-post.png"
+            class="w-12">
+
+          </div>
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Email
+        </h2>
+
+        <p class="text-gray-400">
+          jeril@gmail.com
+        </p>
+
+        <p class="text-gray-500 mt-2">
+          support@gmail.com
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+      class="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-green-500/40 transition duration-500 hover:-translate-y-3 text-center overflow-hidden">
+
+        <div class="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+        <div class="flex justify-center mb-6">
+
+          <div
+          class="w-20 h-20 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+
+            <img
+            src="https://img.icons8.com/fluency/96/marker.png"
+            class="w-12">
+
+          </div>
+
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Address
+        </h2>
+
+        <p class="text-gray-400 leading-relaxed">
+          jeril Gil A. Labagnoy
+        </p>
+
+        <p class="text-gray-500 mt-2">
+          Philippines
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CTA BUTTON -->
+    <div class="text-center mt-20">
+
+      <a href="#"
+      class="px-10 py-5 rounded-2xl bg-red-500 hover:bg-red-600 transition duration-300 text-white font-semibold shadow-lg shadow-red-500/30">
+
+        Send Message
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
   <!-- End Contact Section -->
 
   <!-- Footer -->
-  <section id="footer">
-    <div class="footer container">
-      <div class="brand">
-        <h1><span>W</span>ajahat <span>M</span>urtaza</h1>
+  <section id="footer"
+class="relative py-20 bg-black overflow-hidden border-t border-white/10">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-red-500/10 blur-3xl rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <div class="text-center">
+
+      <!-- BRAND -->
+      <h1 class="text-4xl md:text-5xl font-black text-white">
+
+        <span class="text-red-500">J</span>eril Gil A.
+        <span class="text-red-500">L</span>abagnoy
+
+      </h1>
+
+      <p class="text-gray-400 mt-4 text-lg">
+        Your Complete Web Solution
+      </p>
+
+      <!-- SOCIAL ICONS -->
+      <div class="flex justify-center gap-6 mt-10">
+
+        <!-- FACEBOOK -->
+        <a href="#"
+        class="group w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-blue-500/50 hover:-translate-y-2 transition duration-300">
+
+          <img
+          src="https://img.icons8.com/fluency/96/facebook-new.png"
+          class="w-10 group-hover:scale-110 transition">
+
+        </a>
+
+        <!-- INSTAGRAM -->
+        <a href="#"
+        class="group w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-pink-500/50 hover:-translate-y-2 transition duration-300">
+
+          <img
+          src="https://img.icons8.com/fluency/96/instagram-new.png"
+          class="w-10 group-hover:scale-110 transition">
+
+        </a>
+
+        <!-- TWITTER -->
+        <a href="#"
+        class="group w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-sky-400/50 hover:-translate-y-2 transition duration-300">
+
+          <img
+          src="https://img.icons8.com/fluency/96/twitter.png"
+          class="w-10 group-hover:scale-110 transition">
+
+        </a>
+
+        <!-- BEHANCE -->
+        <a href="#"
+        class="group w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-purple-500/50 hover:-translate-y-2 transition duration-300">
+
+          <img
+          src="https://img.icons8.com/fluency/96/behance.png"
+          class="w-10 group-hover:scale-110 transition">
+
+        </a>
+
       </div>
-      <h2>Your Complete Web Solution</h2>
-      <div class="social-icon">
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/behance.png" /></a>
-        </div>
-      </div>
-      <p>Copyright © 2020 Wajahat. All rights reserved</p>
+
+      <!-- DIVIDER -->
+      <div class="w-full h-px bg-white/10 my-10"></div>
+
+      <!-- COPYRIGHT -->
+      <p class="text-gray-500 text-sm">
+        © 2026 Jeril. All rights reserved.
+      </p>
+
     </div>
-  </section>
+ 
+  </div>
+
+</section>
   <!-- End Footer -->
   <script src="./app.js"></script>
 </body>
